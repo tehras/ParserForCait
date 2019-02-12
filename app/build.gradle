@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/gradle/android.gradle"
+apply from: "$rootDir/gradle/ui.gradle"
+apply from: "$rootDir/gradle/dagger.gradle"
+apply from: "$rootDir/gradle/moshi.gradle"
+apply from: "$rootDir/gradle/glide.gradle"
+apply from: "$rootDir/gradle/room.gradle"
+apply from: "$rootDir/gradle/appcenter.gradle"
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.github.tehras.parsingapp"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'de.siegmar:fastcsv:1.0.3'
+}
+
