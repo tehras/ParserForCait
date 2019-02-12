@@ -74,10 +74,6 @@ class RecentDataViewModel @Inject constructor(
             .subscribeOn(Schedulers.computation())
             .map { RecentDataState(it.first, it.second) }
             .subscribeUntilDestroyed()
-    }
-
-    override fun onStart() {
-        super.onStart()
 
         fetchFile.accept(Unit)
     }
